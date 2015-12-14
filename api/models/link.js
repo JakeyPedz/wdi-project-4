@@ -3,7 +3,9 @@ var mongoose     = require("mongoose");
 
 var linkSchema   = mongoose.Schema({
   href: { type: String, required: true, unique: true },
-  title: String 
+  title: String,
+  description: Text,
+  logo: String 
 });
 
 // linkSchema.plugin(findOrCreate);

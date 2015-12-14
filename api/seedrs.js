@@ -17,17 +17,17 @@ function scrape(url) {
       var $ = cheerio.load(body);
       $("article.CampaignCard").each(function(){
         // console.log($(this).html());
-        var campaignName = $(this).children("a").children("header").children("h3").text().replace(/(\r\n|\n|\r)/gm,"");        
+        var title = $(this).children("a").children("header").children("h3").text().replace(/(\r\n|\n|\r)/gm,"");        
 
-        var campaignLogo = $(this).children("a").children("header").children(".Card-cover").children("span").children('img').attr("data-src");
+        var logo = $(this).children("a").children("header").children(".Card-cover").children("span").children('img').attr("data-src");
 
-        var campaignSummary = $(this).children("a").children("p").text().replace(/(\r\n|\n|\r)/gm,""); 
+        var description = $(this).children("a").children("p").text().replace(/(\r\n|\n|\r)/gm,""); 
 
 
         var data = {
-          campaignName: campaignName,
-          campaignLogo: campaignLogo,
-          campaignSummary: campaignSummary
+          title: title,
+          logo: logo,
+          description: description
         }
         console.log(data)
       })
