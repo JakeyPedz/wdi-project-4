@@ -2,17 +2,17 @@
 
 var Project = require('../models/Project');
 
-// GET
+// get all projects
 function getProjects(request, response) {
-  Project.find(function(error, criminals) {
+  Project.find(function(error, projects) {
     if(error) response.json({message: 'No luck at the moment'});
 
-    response.json({criminals: criminals});
+    response.json({projects: projects});
   }).select('-__v');
 }
 
 
-// GET 
+// get a specific project
 function getProject(request, response) {
   var title = request.params.title;
 
