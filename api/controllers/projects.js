@@ -3,7 +3,7 @@
 var Project = require('../models/Project');
 
 // GET
-function getAll(request, response) {
+function getProjects(request, response) {
   Project.find(function(error, criminals) {
     if(error) response.json({message: 'No luck at the moment'});
 
@@ -24,6 +24,6 @@ function getProject(request, response) {
 }
 
 module.exports = {
-  getAll: getAll,
+  getProjects: getProjects,
   getProject: getProject
 }

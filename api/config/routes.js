@@ -14,9 +14,8 @@ var router = express.Router();
 
 
 // Front End Routes
-router.route('/projects')
-router.route('/projects/:title')
-.get(projectsController.getProject)
+router.get('/projects', projectsController.allProjects)
+router.get('/projects/:title', projectsController.getProject)
 
 
 // Authentication Routes
