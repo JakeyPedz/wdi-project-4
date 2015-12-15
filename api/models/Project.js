@@ -1,13 +1,10 @@
-var mongoose     = require("mongoose");
-var findOrCreate = require("mongoose-findorcreate");
+var mongoose = require("mongoose");
 
-var ProjectSchema   = mongoose.Schema({
+var projectSchema = new mongoose.Schema({
   title: String,
   description: String,
   logo: String,
-  href: { type: String, required: true, unique: true }
+  href: String 
 });
 
-// linkSchema.plugin(findOrCreate);
-
-module.exports = mongoose.model("Project", ProjectSchema);
+module.exports = mongoose.model("Project", projectSchema);

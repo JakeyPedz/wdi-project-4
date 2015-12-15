@@ -12,9 +12,10 @@ var jwt            = require('jsonwebtoken');
 var expressJWT     = require('express-jwt');
 
 // Require relative files
-var config = require('./config/config');
-var routes = require('./config/routes');
-var secret = require('./config/config').secret; // Set up secret used by JWT
+var Project = require("./models/project");
+var config  = require('./config/config');
+var routes  = require('./config/routes');
+var secret  = require('./config/config').secret; // Set up secret used by JWT
 require('./config/passport')(passport);
 
 // Hook into mongoDB via mongoose

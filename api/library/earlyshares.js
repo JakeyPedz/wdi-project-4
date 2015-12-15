@@ -27,7 +27,12 @@ function scrape(url) {
           description: description,
           logo: logo
         }
-        console.log(data)
+
+        var newProject = new Project(data);
+        newProject.save(function(err, data){
+          console.log(data)
+        })
+
       })
     }
   });

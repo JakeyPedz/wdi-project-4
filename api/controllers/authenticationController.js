@@ -57,23 +57,23 @@ function login(req, res, next) {
   });
 };
 
-function facebookRegister(req, res) {
-  // The request will be redirected to Facebook for authentication, so this
-  // function will not be called.
-};
+// function facebookRegister(req, res) {
+//   // The request will be redirected to Facebook for authentication, so this
+//   // function will not be called.
+// };
 
-function facebookCallback(req, res) {
-  // Successful authentication, redirect home.
-  console.log('sucessful facebook login')
-  res.status(200).json({
-    success: true,
-    message: 'Welcome via Facebook!'
-  });
-};
+// function facebookCallback(req, res) {
+//   // Successful authentication, redirect home.
+//   console.log('sucessful facebook login')
+//   res.status(200).json({
+//     success: true,
+//     message: 'Welcome via Facebook!'
+//   });
+// };
 
 module.exports = {
   login: login,
   register: register,
-  facebookRegister: facebookRegister,
-  facebookCallback: facebookCallback
+  // facebookRegister: facebookRegister,
+  // facebookCallback: facebookCallback
 };

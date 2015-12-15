@@ -1,6 +1,7 @@
-var databaseUrl = process.env.MONGOLAB_URI || "mongodb://localhost:27017/node-webscraper";
+var databaseUrl = process.env.MONGOLAB_URI || "mongodb://localhost:27017/qrowded";
 
 module.exports = {
+  secret: "Qrowdedverysecretssecret",
   database: databaseUrl
 }
 

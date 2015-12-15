@@ -1,7 +1,8 @@
-var LocalStrategy = require('passport-local').Strategy;
-var passport = require('passport')
-  , FacebookStrategy = require('passport-facebook').Strategy;
-var User = require('../models/user');
+var passport         = require('passport');
+var LocalStrategy    = require('passport-local').Strategy;
+
+// FacebookStrategy = require('passport-facebook').Strategy;
+var User             = require('../models/user');
 
 // var GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 // var GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
@@ -33,17 +34,17 @@ module.exports = function (passport) {
     });
   }));
 
-  passport.use(new FacebookStrategy({
-      clientID: FACEBOOK_APP_ID,
-      clientSecret: FACEBOOK_APP_SECRET,
-      callbackURL: "http://localhost:3000/auth/facebook/callback" // NEED TO PUT THIS IN ROUTES
-    },
-    function(accessToken, refreshToken, profile, done) {
-      User.findOrCreate(..., function(err, user) {
-        if (err) { return done(err); }
-        done(null, user);
-      });
-    }
-  ));
+  // passport.use(new FacebookStrategy({
+  //     clientID: FACEBOOK_APP_ID,
+  //     clientSecret: FACEBOOK_APP_SECRET,
+  //     callbackURL: "http://localhost:3000/auth/facebook/callback" // NEED TO PUT THIS IN ROUTES
+  //   },
+  //   function(accessToken, refreshToken, profile, done) {
+  //     User.findOrCreate(..., function(err, user) {
+  //       if (err) { return done(err); }
+  //       done(null, user);
+  //     });
+  //   }
+  // ));
 
 };
