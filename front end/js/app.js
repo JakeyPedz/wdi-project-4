@@ -1,1 +1,3 @@
-angular.module('Qrowded', []);
+angular
+  .module('Qrowded', ['ui.router'])
+  .config(MainRouter);
