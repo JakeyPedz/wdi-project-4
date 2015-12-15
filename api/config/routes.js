@@ -12,22 +12,16 @@ var authController     = require('../controllers/auth');
 // Establish 'router'
 var router = express.Router();
 
-// STILL NEED TO TIDY THIS UP
 
-
+// Front End Routes
 router.route('/projects')
-
-
-.get(projectsController.getAll)
-
 router.route('/projects/:title')
-
-// GET return specific Project
 .get(projectsController.getProject)
 
 
-
-
+// Authentication Routes
+router.post('/login', authController.login);
+router.post('/register', authController.register);
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { successRedirect: '/',
