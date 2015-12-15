@@ -1,8 +1,9 @@
-var request     = require("request");
-var cheerio     = require("cheerio");
-var mongoose    = require("mongoose");
-var project     = require("./models/project");
-var config      = require("./config/config");
+var request      = require("request");
+var cheerio      = require("cheerio");
+var mongoose     = require("mongoose");
+var findOrCreate = require('mongoose-findorcreate'); 
+var Project      = require("../models/project");
+var config       = require("../config/config");
 
 var mongoose = mongoose.connect(config.database);
 
@@ -27,32 +28,20 @@ function scrape(url) {
           logo: logo
         }
         console.log(data)
+
+        Project.findOrCreate({ title: data.title }, function(err, project, created) {
+          if (err) return console.log("There was an error saving " + data.title + ": " + err.errmsg);
+          if (created) return console.log("New project added '%s.", data.title);
+          Project.findByIdAndUpdate(project._id, data, function(err, project)
+          {
+            if (err) return console.log("There was an error updating " + data.title + ": " + err.errmsg);
+            return ("'%s' was updated.", data.title);
+          })
+        })
       })
     }
   });
 }
 
-// mongoose.connect('mongodb://localhost/qrowded');
 
 
-      // $(".g").each(function(){
-      //   var href  = $(this).children("h3.r").children("a").attr("href").match(/(.*?)(?=[&"])/)[0].replace("/url?q=", "");
-      //   var title = $(this).children("h3.r").children("a").text();
-
-      //   var data = {
-      //     href: href,
-      //     title: title
-      //   } 
-
-      //   console.log(data);
-
-      //   Link.findOrCreate({ href: data.href }, function(err, link, created) {
-      //     if (err) return console.log("There was an error saving " + data.href + ": " + err.errmsg);
-      //     if (created) return console.log("New link added '%s.", data.href);
-      //     Link.findByIdAndUpdate(link._id, data, function(err, link)
-      //     {
-      //       if (err) return console.log("There was an error updating " + data.href + ": " + err.errmsg);
-      //       return ("'%s' was updated.", data.href);
-      //     })
-      //   })
-     

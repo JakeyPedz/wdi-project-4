@@ -1,8 +1,8 @@
 var request     = require("request");
 var cheerio     = require("cheerio");
 var mongoose    = require("mongoose");
-var project     = require("./models/project");
-var config      = require("./config/config");
+var Project      = require("../models/project");
+var config       = require("../config/config");
 
 var mongoose = mongoose.connect(config.database);
 

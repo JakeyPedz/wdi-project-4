@@ -1,3 +1,5 @@
+// Controllers and routes work together
+
 var Project = require('../models/Project');
 
 // GET
