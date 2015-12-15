@@ -2,6 +2,14 @@
 
 ## First task is to get the data of several different Crowdfunding platforms.
 
+Ones working at the moment
+
+- Crowdcube
+- Early Shares
+- Invesdor
+- Seedrs
+
+
 
 - Crowdcube: getting data # (DONE)
 - Crowdfunder: getting data types but not content #

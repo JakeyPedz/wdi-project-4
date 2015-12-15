@@ -17,12 +17,12 @@ function scrape(url) {
       var $ = cheerio.load(body);
       $("div.base").each(function(){
         // console.log($(this).html());
-        var href = $(this).children("a.conversion").attr("href");
+        var title = $(this).children("a.conversion").attr("href");
         var description = $(this).children(".pitch__detail").children(".pitch__description").children("a").text();
         var logo = $(this).children(".pitch__detail").children(".pitch__logo").children("a").attr("src");
         
         var data = {
-          href: href,
+          title: title,
           description: description,
           logo: logo
         }
