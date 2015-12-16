@@ -22,4 +22,68 @@
 }
 
 
+#aboutpage {
+  margin-top: 75px;
+  text-align: center;
+  color: black;
+  padding: 30px;
+}
 
+
+
+#aboutpic {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  
+}
+
+
+.intro { min-height: 0; /* background-position: right center; */ }
+.intro .container { min-height: 0; padding-top: 20px; padding-bottom: 60px; overflow: hidden; }
+.intro .logo { top: 0; background-image: url(_images/common/bkgd-intrologo-mobile.svg); }
+.no-svg .intro .logo { background-image: url(_images/common/bkgd-intrologo-mobile.png); }
+.ie8 .intro .logo { top: 0; } /* IE8 */
+.intro .logo img { max-height: 80px; }
+.ie8 .intro .logo img { width: 93px; } /* IE8 */
+
+.intro .scrolldown { background-color: rgba(0,0,0,0.4); }
+.intro .scrolldown:hover { background-color: rgba(0,0,0,0.8); }
+
+.welcome { position: relative; top: 0; left: 0; margin: 0; }
+.welcome .phones { display: none; float: right; width: 70%; padding: 0 15%; }
+.welcome .copy { float: left; width: 100%; padding: 20px 0 0 0; text-align: center; }
+.welcome .mobilephones { display: block; }
+.welcome h1 { font-size: 2.8em; }
+.welcome h2 { width: 100%; font-size: 1.4em; }
+.welcome h3 { font-size: 1.3em; }
+.welcome p { font-size: 0.8em; }
+
+.promooffer { font-size: 1.2em; }
+.promooffer .offertext { padding: 20px 0 12px 0; }
+.promooffer .offerbtn { display: block; }
+.intro .intropromooffer { position: relative; }
+
+.welcome ul.appdownloads li { min-width: 130px; max-width: 178px; width: auto; text-align: left; }
+.welcome ul.appdownloads li a span { font-size: 1em; }
+
+ul.appbadges li { height: 40px; }
+ul.appbadges li img { height: 40px; }
+
+/* Paid Landing Page Variation */
+body.single-adverts .intro { min-height: 0; }
+body.single-adverts .welcome h1 { font-size: 2.8em; }
+
+/*--------------------------------*/
+
+/*--- Community ---*/
+ul.community li { width: 90px; height: 90px; }
+ul.community li img { width: 90px; height: 90px; }
+ul.community li:nth-child(2n) { display: none; } /* Hide Half */
+
+/*--------------------------------*/
+
+/*--- Features ---*/
+.feature { width: 40%; padding: 0 5%; }
+
+/*--- Two Features with Photo ---*/
+.section.twofeatureswithphoto .feature { width: 44%; padding: 0 3%; }
