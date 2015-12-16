@@ -1,0 +1,30 @@
+{
+  "name": "qrowded",
+  "homepage": "https://github.com/JakeyPedz/wdi-project-4",
+  "authors": [
+    "JakeyPedz <j.willisfleming@gmail.com>"
+  ],
+  "description": "Alternative finance aggregator.",
+  "main": "app.js",
+  "moduleType": [],
+  "keywords": [
+    "Fintech",
+    "Node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.4.8",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "bootstrap": "v4.0.0-alpha.2",
+    "jquery": "~2.1.4",
+    "tether": "~1.1.1"
+  }
+}

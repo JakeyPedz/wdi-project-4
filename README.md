@@ -2,11 +2,17 @@
 
 ## First task is to get the data of several different Crowdfunding platforms.
 
+
+Need to do NG-Resource so I can access it in the back
+
+also need to create my models in the front end.
+
+
 Ones working at the moment
 
-- Crowdcube
-- Early Shares
-- Invesdor
+- Crowdcube (saved to db)
+- Early Shares (saved to db)
+- Invesdor (saved to db)
 - Seedrs
 
 

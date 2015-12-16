@@ -1,7 +1,7 @@
 angular
-.module('Qrowded', ['ui.router'])
-.config(MainRouter);
-
+  .module('Qrowded', ['ui.router', 'ngResource'])
+  .config(MainRouter)
+  .constant("API", "http://localhost:3000/api")
 
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
