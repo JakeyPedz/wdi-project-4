@@ -6,26 +6,31 @@ angular
   $httpProvider.interceptors.push('authInterceptor')
 });
 
+// MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('home', {
     url: "/",
-    templateUrl: "partials/home.html",
+    templateUrl: "js/partials/home.html",
   })
   .state('viewProjects', {
     url: "/projects",
-    templateUrl: "projects.html",
-    controller: 'projectsController'
+    templateUrl: "js/partials/projects.html",
+    controller: 'projectsController as projects'
   })
   .state('login', {
     url: "/login",
-    templateUrl: "partials/login.html"
-    controller: 'usersController'
+    templateUrl: "js/partials/login.html",
+    controller: 'UsersController as users'
   })
   .state('register', {
     url: "/register",
-    templateUrl: "partials/register.html",
-    controller: 'usersController'
+    templateUrl: "js/partials/register.html",
+    controller: 'UsersController as users'
+  })
+  .state('about', {
+    url: "/about",
+    templateUrl: "js/partials/about.html"
   })
 
   $urlRouterProvider.otherwise("/");

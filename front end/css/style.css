@@ -2,15 +2,23 @@
   height: 350px;
 }
 
-.card-img-top {
-  max-height: 75px;
-  min-height: 50px;
+.card-block {
+  position: relative;
+}
+
+.card-block > .card-img-top {
+  height: 50px;
   max-width: 100%;
-  align-itmes: center;
+  margin-bottom: 10px;
 }
 
 .card-title.ng-binding {
-  max-height: 50px;
+  height: 50px;
+}
+
+.tile-button {
+  position: absolute;
+  bottom: 1.25rem;
 }
 
 

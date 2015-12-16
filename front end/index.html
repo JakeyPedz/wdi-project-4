@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Qrowded</title>
   <script src="/bower_components/angular/angular.js"></script>
-  <script src="/bower_components/angular/angular.min.js"></script>
+  <!-- // <script src="/bower_components/angular/angular.min.js"></script> -->
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
   <script src="/bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
@@ -46,7 +46,7 @@
           <li class="nav-item" ng-hide="users.isLoggedIn()">
             <a class="nav-link" href="#register">Register</a>
           </li>
-          <li><a ui-sref-active="active" ui-sref="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" ui-sref-active="active" ui-sref="about">About</a></li>
           <li class="nav-item" ng-hide="users.isLoggedIn()">
             <a class="nav-link" href="#login">Login</a>
           </li>

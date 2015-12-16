@@ -2,13 +2,12 @@ angular
   .module('Qrowded')
   .controller('UsersController', UserController)
 
-UserController.$inject = ['User', 'TokenService']
-function UserController(User, TokenService) {
+UserController.$inject = ['User', 'TokenService', '$state']
+function UserController(User, TokenService, $state) {
   var self = this;
 
   self.all    = [];
   self.user   = {};
-  self.sanityCheck = "Hello"
 
   function handleLogin(res) {
     console.log("inside handleLogin")
@@ -27,11 +26,15 @@ function UserController(User, TokenService) {
   self.login = function() {
     console.log("arrived")
     User.login(self.user, handleLogin);
+    $state.go('viewProjects');
   }
 
   self.register = function() {
     User.register(self.user, handleLogin);
+    $state.go('viewProjects');
   }
+
+
 
   self.disappear = function() {
     TokenService.removeToken();
