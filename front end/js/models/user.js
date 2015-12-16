@@ -1,8 +1,8 @@
 angular
   .module('Qrowded')
-  .factory('Agent', Agent);
+  .factory('User', User);
 
-USER.$inject = ['$resource', 'API'];
+User.$inject = ['$resource', 'API'];
 function User($resource, API) {
 
   return $resource(

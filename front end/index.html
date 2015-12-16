@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='Qrowded'>
 <head>
   <meta charset="UTF-8">
   <title>Qrowded</title>
   <script src="/bower_components/angular/angular.min.js"></script>
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="/bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="/bower_components/tether/dist/js/tether.min.js"></script>
   <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -13,14 +14,21 @@
   <!-- Internal scripts -->
   <script src="js/app.js"></script>
   <script src="js/models/project.js"></script>
+  <script src="js/models/user.js"></script>
+  <script src="js/services/authInterceptor.js"></script>
+  <script src="js/services/tokenService.js"></script>
   <script src="js/controllers/projectsController.js"></script>
+  <script src="js/controllers/usersController.js"></script>
+  
 
   <!-- CSS -->
   <link rel="stylesheet" href="/bower_components/tether/dist/css/tether.min.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-app='Qrowded'>
+
+<!-- Nav Bar -->
+<body ng-controller="UsersController as users">
   <nav class="navbar navbar-light bg-faded">
     <div class="container">
       <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
@@ -44,7 +52,23 @@
   </nav>
 
 
+  <!-- <main> -->
+   <!--  <div class="message">
+      {{agents.message}}
+    </div>
 
+    <div ng-show="users.isLoggedIn()">
+      <h3>Welcome back Agent {{ users.agent.codename }}</h3>
+    </div> -->
+
+    <!-- <section ng-show="users.isLoggedIn()">
+      <p>Here is the list of our current assets:</p>
+      <ul>
+        <li ng-repeat="agent in users.all">
+          <strong>{{agent.codename}}</strong> - {{agent.realname}} - {{agent.location}}
+        </li>
+      </ul>
+    </section> -->
 
   <main class="container" ng-show="users.isLoggedIn()">
     <h1>Qrowded Projects</h1>
@@ -62,6 +86,9 @@
     </section>
   </main>
 
+<!-- Forms to Log In -->
+
+<h1>Hello: {{ users.sanityCheck }}</h1>
   <section ng-hide="users.isLoggedIn()">
     <h3>Login</h3>
     <form id="login" ng-submit="users.login()">
@@ -76,9 +103,9 @@
   </section>
 
   <section ng-hide="users.isLoggedIn()">
-    <h3>Join</h3>
+    <h3>Register</h3>
     <form id="register" ng-submit="users.register()">
-      <label for="email">Codename</label>
+      <label for="email">Email</label>
       <input type="text" name="email" placeholder="Email" ng-model="users.user.email">
 
       <label for="password">Password</label>

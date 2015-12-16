@@ -1,5 +1,5 @@
 angular
-  .module('Qrowded', ['ui.router', 'ngResource'])
+  .module('Qrowded', ['angular-jwt', 'ui.router', 'ngResource'])
   .config(MainRouter)
   .constant("API", "http://localhost:3000/api")
 

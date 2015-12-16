@@ -1,6 +1,6 @@
 angular
   .module('Qrowded')
-  .controller('usersController', UserController)
+  .controller('UsersController', UserController)
 
 UserController.$inject = ['User', 'TokenService']
 function UserController(User, TokenService) {
@@ -8,6 +8,7 @@ function UserController(User, TokenService) {
 
   self.all    = [];
   self.user   = {};
+  self.sanityCheck = "Hello"
 
   function handleLogin(res) {
     var token = res.token ? res.token : null;
@@ -23,6 +24,7 @@ function UserController(User, TokenService) {
   }
 
   self.login = function() {
+    console.log("arrived")
     User.login(self.user, handleLogin);
   }
 
