@@ -11,12 +11,13 @@ function UserController(User, TokenService) {
   self.sanityCheck = "Hello"
 
   function handleLogin(res) {
+    console.log("inside handleLogin")
     var token = res.token ? res.token : null;
     
     // Console.log our response from the API
     if (token) {
       console.log(res);
-      self.getUsers();
+      // self.getUsers();
       self.user = TokenService.decodeToken();
     }
 

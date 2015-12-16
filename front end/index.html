@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Qrowded</title>
+  <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular/angular.min.js"></script>
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
@@ -87,8 +88,6 @@
   </main>
 
 <!-- Forms to Log In -->
-
-<h1>Hello: {{ users.sanityCheck }}</h1>
   <section ng-hide="users.isLoggedIn()">
     <h3>Login</h3>
     <form id="login" ng-submit="users.login()">
