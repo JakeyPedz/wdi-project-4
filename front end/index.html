@@ -29,20 +29,24 @@
       <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
         <a class="navbar-brand" href="#">Qrowded</a>
         <ul class="nav navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
+          <li class="nav-item" ng-show="users.isLoggedIn()">
+            <a class="nav-link" ng-click="users.disappear()" href="#">Logout</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
+          <li class="nav-item" ng-hide="users.isLoggedIn()">
+            <a class="nav-link" href="#register">Register</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+          <li class="nav-item" ng-hide="users.isLoggedIn()">
+            <a class="nav-link" href="#login">Login</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <main class="container">
+
+
+
+
+  <main class="container" ng-show="users.isLoggedIn()">
     <h1>Qrowded Projects</h1>
     <section ng-controller='projectsController as projects' class="row">
       <div class="col-sm-4" ng-repeat="project in projects.all">
@@ -57,5 +61,31 @@
       </div>
     </section>
   </main>
+
+  <section ng-hide="users.isLoggedIn()">
+    <h3>Login</h3>
+    <form id="login" ng-submit="users.login()">
+      <label for="email">Email</label>
+      <input type="text" name="email" placeholder="What is your email?" ng-model="users.user.email">
+
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="What is your password?" ng-model="users.user.password">
+
+      <input type="submit" value="Access">
+    </form>
+  </section>
+
+  <section ng-hide="users.isLoggedIn()">
+    <h3>Join</h3>
+    <form id="register" ng-submit="users.register()">
+      <label for="email">Codename</label>
+      <input type="text" name="email" placeholder="Email" ng-model="users.user.email">
+
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password" ng-model="users.user.password">
+
+      <input type="submit" value="Access">
+    </form>
+  </section>
 </body>
 </html>
