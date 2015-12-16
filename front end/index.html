@@ -2,6 +2,8 @@
 <html ng-app='Qrowded'>
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Qrowded</title>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular/angular.min.js"></script>
@@ -30,7 +32,7 @@
 
 <!-- Nav Bar -->
 <body ng-controller="UsersController as users">
-  <nav class="navbar navbar-light bg-faded">
+  <nav class="navbar navbar-dark bg-primary">
     <div class="container">
       <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
         &#9776;
@@ -52,66 +54,9 @@
     </div>
   </nav>
 
-
-  <!-- <main> -->
-   <!--  <div class="message">
-      {{agents.message}}
-    </div>
-
-    <div ng-show="users.isLoggedIn()">
-      <h3>Welcome back Agent {{ users.agent.codename }}</h3>
-    </div> -->
-
-    <!-- <section ng-show="users.isLoggedIn()">
-      <p>Here is the list of our current assets:</p>
-      <ul>
-        <li ng-repeat="agent in users.all">
-          <strong>{{agent.codename}}</strong> - {{agent.realname}} - {{agent.location}}
-        </li>
-      </ul>
-    </section> -->
-
-  <main class="container" ng-show="users.isLoggedIn()">
-    <h1>Qrowded Projects</h1>
-    <section ng-controller='projectsController as projects' class="row">
-      <div class="col-sm-4" ng-repeat="project in projects.all">
-        <div class="card card-block">
-          <img class="card-img-top" ng-src="{{project.logo}}" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">{{project.title}}</h4>
-            <p class="card-text">{{project.description | limitTo: 100 }}{{project.description.length > 100 ? '...' : ''}}</p>
-            <a href="#" class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-<!-- Forms to Log In -->
-  <section ng-hide="users.isLoggedIn()">
-    <h3>Login</h3>
-    <form id="login" ng-submit="users.login()">
-      <label for="email">Email</label>
-      <input type="text" name="email" placeholder="What is your email?" ng-model="users.user.email">
-
-      <label for="password">Password</label>
-      <input type="password" name="password" placeholder="What is your password?" ng-model="users.user.password">
-
-      <input type="submit" value="Access">
-    </form>
-  </section>
-
-  <section ng-hide="users.isLoggedIn()">
-    <h3>Register</h3>
-    <form id="register" ng-submit="users.register()">
-      <label for="email">Email</label>
-      <input type="text" name="email" placeholder="Email" ng-model="users.user.email">
-
-      <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Password" ng-model="users.user.password">
-
-      <input type="submit" value="Access">
-    </form>
-  </section>
-</body>
-</html>
+  <div class="wrapper">    
+    <div ui-view></div>
+  </div>
+  
+  </body>
+  </html>

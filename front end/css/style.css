@@ -2,3 +2,16 @@
   height: 350px;
 }
 
+.card-img-top {
+  max-height: 75px;
+  min-height: 50px;
+  max-width: 100%;
+  align-itmes: center;
+}
+
+.card-title.ng-binding {
+  max-height: 50px;
+}
+
+
+
