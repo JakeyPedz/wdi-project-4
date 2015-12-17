@@ -18,7 +18,32 @@ function usersShow(request, response) {
   }).select('-__v');
 }
 
+function usersAddInterest(request, response){
+  var userId = request.params.id;
+  var interest = request.body.interest;
+  User.findById(userId, function(error, user){
+    user.interests.push(interest)
+    user.save(function(error){
+      response.status(200).json({user:user})
+    })
+  });
+}
+
+function usersRemoveInterest(request, response){
+  var userId = request.params.id;
+  var interest = request.body.interest;
+  User.findById(userId, function(error, user){
+    var index = user.interests.indexOf(interest);
+    user.interests.splice(index,1);
+    user.save(function(error){
+      response.status(200).json({user:user})
+    })
+  });
+}
+
 module.exports = {
   usersIndex: usersIndex,
-  usersShow: usersShow
+  usersShow: usersShow,
+  usersAddInterest: usersAddInterest,
+  usersRemoveInterest: usersRemoveInterest
 }

@@ -15,18 +15,55 @@ function UserController(User, TokenService, $state, currentUser, $stateParams) {
   self.getUsers    = getUsers;  
   self.getUser     = getUser;
   self.isLoggedIn  = isLoggedIn;
-  self.updateUser  = updateUser;
+  // self.updateUser  = updateUser;
+  self.hasInterest = hasInterest;
+  self.addInterest = addInterest;
+  self.removeInterest = removeInterest;
 
   if ($stateParams.id) {
     self.getUser($stateParams.id)
+    self.params = $stateParams.id
   }
 
   // Interests
   self.interests = [
-    "p2p",
-    "housing",
-    "debt"
+    "Eco Projects",
+    "Debt Securities",
+    "Tech",
+    "Alternative",
+    "Equine Equity",
+    "Asian",
+    "Debentures",
+    "P2B Lending",
+    "Funds",
+    "Real Estate",
+    "Pension Funds",
+    "Rewards Fund",
+    "American",
+    "Invoice Finance",
+    "Film",
+    "American"
   ];
+
+  function hasInterest(interest){
+    if(self.user.interests.indexOf(interest) >= 0) return true
+    return false
+  }
+
+  function addInterest(interest){
+    self.user.interests.push(interest)
+    User.addInterest({id: self.user._id}, {interest:interest}, function(data){
+      console.log(data)
+    });
+  }
+
+  function removeInterest(interest){
+    var index = self.user.interests.indexOf(interest);
+    self.user.interests.splice(index, 1);
+    User.removeInterest({id: self.user._id}, {interest:interest}, function(data){
+      console.log(data)
+    });
+  }
 
 
   function handleLogin(res) {
@@ -73,10 +110,10 @@ function UserController(User, TokenService, $state, currentUser, $stateParams) {
     })
   }
 
-  function updateUser(id){
-    console.log("Updating", id)
-    // Update User
-  }
+  // function updateUser(id){
+  //   console.log("Updating", id)
+  //   // Update User
+  // }
 
   function isLoggedIn(){
     return !!TokenService.getToken();

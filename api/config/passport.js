@@ -22,6 +22,9 @@ module.exports = function (passport) {
       // If no existing user, create the account
       var newUser = new User();
       newUser.local.email = email;
+      newUser.local.username = req.body.username;
+      newUser.local.firstname = req.body.firstname;
+      newUser.local.company = req.body.company;
       newUser.local.city = req.body.city;
       newUser.local.password = User.encrypt(password);
       newUser.save(function (err, user) {

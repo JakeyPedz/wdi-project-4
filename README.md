@@ -13,7 +13,7 @@ Ones working at the moment
 - Crowdcube (saved to db)
 - Early Shares (saved to db)
 - Invesdor (saved to db)
-- Seedrs
+- Seedrs (saved to db)
 
 
 

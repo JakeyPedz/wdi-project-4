@@ -5,7 +5,7 @@ var bcrypt   = require('bcrypt-nodejs');
 // Define a 'user' in a 'local' JSON object
 var userSchema = new mongoose.Schema({
   local: {
-    username: {type: String, unique: true}, 
+    username: String, 
     email: {type: String, unique: true, required: true},   
     firstname: {type: String},  
     company: {type: String},     

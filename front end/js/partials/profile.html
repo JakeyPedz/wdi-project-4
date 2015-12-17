@@ -1,14 +1,36 @@
 <h1>Profile</h1>
 {{ users.user.local.email }}
 
-{{ user.user.interests }}
+<h3>Users Interests</h3>
 
-<form ng-submit="users.updateUser({ id: users.user._id db.dropDatabase()})">
-  <div class="form-group">
-    <div class="checkbox" ng-repeat="interest in users.interests">
-      <label>
-        <input type="checkbox" ng-checked="users.user.interests.indexOf(interest) > -1"> {{ interest }}
-      </label>
+<ul>
+    <li ng-repeat="interest in users.user.interests track by $index">{{interest}}</li>
+</ul>
+
+<!-- <ul>
+    <li ng-repeat="interest in users.interests track by $index">{{interest}}</li>
+</ul>
+ -->
+
+<div ng-if="users.params == users.currentUser.user_id" class="checkbox" >
+    <ul>
+        <li ng-if="users.hasInterest(interest)" ng-repeat="interest in users.interests track by $index"><input type="checkbox" value="{{ interest }}" ng-click="users.removeInterest(interest)" checked>{{interest}}</li>
+        <li ng-if="!users.hasInterest(interest)" ng-repeat="interest in users.interests track by $index"><input type="checkbox" value="{{ interest }}" ng-click="users.addInterest(interest)">{{interest}}</li>
+    </ul>
+</div>
+
+
+<!-- <div class="container">
+    <br><p>Click all the fruits that you like</p>
+    <div class="btn-group col-xs-12" data-toggle="buttons">
+        <label class="btn btn-default">
+            <input type="checkbox" name="fruit" id="apple" value="apple">apple
+        </label>
+        <label class="btn btn-default">
+            <input type="checkbox" name="fruit" id="pear" value="pear">pear
+        </label>
+        <label class="btn btn-default">
+            <input type="checkbox" name="fruit" id="orange" value="orange">orange
+        </label>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</div> -->

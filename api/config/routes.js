@@ -9,6 +9,13 @@ var projectsController = require('../controllers/projectsController');
 var usersController    = require('../controllers/usersController');
 var authController     = require('../controllers/authenticationController');
 
+// Authentication Routes
+router.route('/login')
+  .post(authController.login);
+router.route('/register')
+  .post(authController.register);
+  
+
 // Project Routes
 router.route('/projects')
   .get(projectsController.projectsIndex)
@@ -24,12 +31,14 @@ router.route('/users')
 router.route('/users/:id')
   .get(usersController.usersShow)
 
+router.route('/users/:id/addinterest')
+  .put(usersController.usersAddInterest)
 
-// Authentication Routes
-router.route('/login')
-  .post(authController.login);
-router.route('/register')
-  .post(authController.register);
+router.route('/users/:id/removeInterest')
+  .put(usersController.usersRemoveInterest)
+
+
+
 
 // app.get('/auth/facebook', passport.authenticate('facebook'));
 // app.get('/auth/facebook/callback',
