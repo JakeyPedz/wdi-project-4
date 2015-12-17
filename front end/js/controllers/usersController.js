@@ -15,10 +15,19 @@ function UserController(User, TokenService, $state, currentUser, $stateParams) {
   self.getUsers    = getUsers;  
   self.getUser     = getUser;
   self.isLoggedIn  = isLoggedIn;
+  self.updateUser  = updateUser;
 
   if ($stateParams.id) {
     self.getUser($stateParams.id)
   }
+
+  // Interests
+  self.interests = [
+    "p2p",
+    "housing",
+    "debt"
+  ];
+
 
   function handleLogin(res) {
     var token = res.token ? res.token : null;
@@ -62,6 +71,11 @@ function UserController(User, TokenService, $state, currentUser, $stateParams) {
       console.log("USERS:", data)
       self.user = data.user;
     })
+  }
+
+  function updateUser(id){
+    console.log("Updating", id)
+    // Update User
   }
 
   function isLoggedIn(){
