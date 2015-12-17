@@ -3,7 +3,7 @@
 
 {{ user.user.interests }}
 
-<form ng-submit="users.updateUser({ id: users.user._id })">
+<form ng-submit="users.updateUser({ id: users.user._id db.dropDatabase()})">
   <div class="form-group">
     <div class="checkbox" ng-repeat="interest in users.interests">
       <label>

@@ -5,8 +5,12 @@ var bcrypt   = require('bcrypt-nodejs');
 // Define a 'user' in a 'local' JSON object
 var userSchema = new mongoose.Schema({
   local: {
-    email: { type: String, unique: true, required: true },
-    password: { type: String, required: true },
+    username: {type: String, unique: true}, 
+    email: {type: String, unique: true, required: true},   
+    firstname: {type: String},  
+    company: {type: String},     
+    city: {type: String}, 
+    password: {type: String, required: true}
   },
   interests: []
 });
@@ -22,3 +26,5 @@ userSchema.methods.validPassword = function (password) {
 };
 
 module.exports = mongoose.model("User", userSchema);
+
+
