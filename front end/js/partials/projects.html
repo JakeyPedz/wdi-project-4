@@ -1,15 +1,11 @@
-<main class="container" ng-show="users.isLoggedIn()">
-  <h1>Qrowded Projects</h1>
-  <section ng-controller='projectsController as projects' class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="project in projects.all">
-      <div class="card card-block">
-        <img class="card-img-top" ng-src="{{project.logo}}" alt="Card image cap">
-        <!-- <div class="card-block"> -->
-          <h4 class="card-title">{{project.title | limitTo: 15 }}{{project.description.length > 15 ? '...' : ''}}</h4>
-          <p class="card-text">{{project.description | limitTo: 100 }}{{project.description.length > 100 ? '...' : ''}}</p>
-          <a href="{{project.href}}" class="btn btn-primary tile-button">Link</a>
-        <!-- </div> -->
-      </div>
+<h1>Qrowded Projects</h1>
+<section ng-controller='projectsController as projects' class="row">
+  <div class="col-sm-12 col-md-6 col-lg-4" ui-sref="project({id: project._id })" ng-repeat="project in projects.all">
+    <div class="card card-block">
+      <img class="card-img-top" ng-src="{{project.logo}}" alt="Card image cap">
+      <!-- <div class="card-block"> -->
+      <h4 class="card-title">{{project.title | limitTo: 15 }}{{project.description.length > 15 ? '...' : ''}}</h4>
+      <p class="card-text">{{project.description | limitTo: 100 }}{{project.description.length > 100 ? '...' : ''}}</p>
     </div>
-  </section>
-</main>
+  </div>
+</section>

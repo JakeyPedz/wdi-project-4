@@ -2,15 +2,25 @@ angular
   .module('Qrowded')
   .controller('UsersController', UserController)
 
-UserController.$inject = ['User', 'TokenService', '$state']
-function UserController(User, TokenService, $state) {
+UserController.$inject = ['User', 'TokenService', '$state', 'currentUser', '$stateParams']
+function UserController(User, TokenService, $state, currentUser, $stateParams) {
   var self = this;
 
-  self.all    = [];
-  self.user   = {};
+  self.all         = [];
+  self.user        = {};
+  self.currentUser = currentUser.getUser();
+  self.login       = login;
+  self.register    = register;
+  self.disappear   = disappear;
+  self.getUsers    = getUsers;  
+  self.getUser     = getUser;
+  self.isLoggedIn  = isLoggedIn;
+
+  if ($stateParams.id) {
+    self.getUser($stateParams.id)
+  }
 
   function handleLogin(res) {
-    console.log("inside handleLogin")
     var token = res.token ? res.token : null;
     
     // Console.log our response from the API
@@ -23,34 +33,44 @@ function UserController(User, TokenService, $state) {
     self.message = res.message;
   }
 
-  self.login = function() {
+  function login() {
     console.log("arrived")
     User.login(self.user, handleLogin);
-    $state.go('viewProjects');
+    $state.go('projects');
   }
 
-  self.register = function() {
+  function register() {
     User.register(self.user, handleLogin);
-    $state.go('viewProjects');
+    $state.go('projects');
   }
 
-  self.disappear = function() {
+  function disappear() {
     TokenService.removeToken();
+    currentUser.removeUser();
     self.all   = [];
     self.user = {}; 
   }
 
-  self.getUsers = function() {
-    self.all = User.query();
+  function getUsers() {
+    User.query(function(data) {
+      self.all = data.users;
+    });
   }
 
-  self.isLoggedIn = function(){
+  function getUser(id){
+    User.get({ id: id }, function(data) {
+      console.log("USERS:", data)
+      self.user = data.user;
+    })
+  }
+
+  function isLoggedIn(){
     return !!TokenService.getToken();
   }
 
   if (self.isLoggedIn()) {
     self.getUsers();
-    self.user = TokenService.decodeToken();
+    // self.user = TokenService.decodeToken();
   }
 
   return self;

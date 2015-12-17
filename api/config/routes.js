@@ -6,6 +6,7 @@ var app            = express();
 
 // Require Controllers 
 var projectsController = require('../controllers/projectsController');
+var usersController    = require('../controllers/usersController');
 var authController     = require('../controllers/authenticationController');
 
 // Project Routes
@@ -15,6 +16,13 @@ router.route('/projects')
 
 router.route('/projects/:id')
   .get(projectsController.projectsShow)
+
+
+router.route('/users')
+  .get(usersController.usersIndex)
+
+router.route('/users/:id')
+  .get(usersController.usersShow)
 
 
 // Authentication Routes

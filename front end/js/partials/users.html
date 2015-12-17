@@ -1,0 +1,6 @@
+<h1>Users</h1>
+<ul>
+  <li ng-repeat="user in users.all">
+    <a ui-sref="profile({id: user._id })">{{ user.local.email }}</a>
+  </li>
+</ul>
