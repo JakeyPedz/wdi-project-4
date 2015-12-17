@@ -1,11 +1,12 @@
-<h1>Profile</h1>
-{{ users.user.local.email }}
+<div class="profilepage">
+<h3>{{ users.user.local.email }}</h3>
 
-<h3>Users Interests</h3>
+<h4>Users Interests</h4>
 
 <ul>
     <li ng-repeat="interest in users.user.interests track by $index">{{interest}}</li>
 </ul>
+
 
 <!-- <ul>
     <li ng-repeat="interest in users.interests track by $index">{{interest}}</li>
@@ -17,6 +18,7 @@
         <li ng-if="users.hasInterest(interest)" ng-repeat="interest in users.interests track by $index"><input type="checkbox" value="{{ interest }}" ng-click="users.removeInterest(interest)" checked>{{interest}}</li>
         <li ng-if="!users.hasInterest(interest)" ng-repeat="interest in users.interests track by $index"><input type="checkbox" value="{{ interest }}" ng-click="users.addInterest(interest)">{{interest}}</li>
     </ul>
+</div>
 </div>
 
 
