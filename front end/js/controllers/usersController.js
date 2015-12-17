@@ -34,8 +34,6 @@ function UserController(User, TokenService, $state) {
     $state.go('viewProjects');
   }
 
-
-
   self.disappear = function() {
     TokenService.removeToken();
     self.all   = [];
