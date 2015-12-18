@@ -26,6 +26,7 @@ module.exports = function (passport) {
       newUser.local.firstname = req.body.firstname;
       newUser.local.company = req.body.company;
       newUser.local.city = req.body.city;
+      newUser.local.image = req.body.image;
       newUser.local.password = User.encrypt(password);
       newUser.save(function (err, user) {
 

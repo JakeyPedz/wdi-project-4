@@ -1,7 +1,7 @@
 <div class="profilepage">
-<h3>{{ users.user.local.email }}</h3>
+<h3>{{ users.user.local.username }}</h3>
 
-<h4>Users Interests</h4>
+<h4>Is interested in...</h4>
 
 <ul>
     <li ng-repeat="interest in users.user.interests track by $index">{{interest}}</li>
